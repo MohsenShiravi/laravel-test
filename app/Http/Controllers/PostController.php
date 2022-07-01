@@ -28,7 +28,7 @@ class PostController extends Controller
             'category_id'=>$request->get('category_id'),
             'status'=>$request->get('status'),
         ]);
-        redirect()->route('posts.index');
+        return redirect()->route('posts.index');
     }
 
     public function index()

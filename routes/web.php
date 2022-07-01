@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,14 @@ Route::prefix('posts')->group(function (){
     Route::get('/edit/{post}',[PostController::class,'edit'])->name('posts.edit');
     Route::post('/update/{post}',[PostController::class,'update'])->name('posts.update');
     Route::get('/destroy/{post}',[PostController::class,'destroy'])->name('posts.destroy');
+});
+Route::prefix('roles')->group(function (){
+    Route::get('/',[RoleController::class,'index'])->name('roles.index');
+    Route::get('/create',[RoleController::class,'create'])->name('roles.create');
+    Route::post('/store',[RoleController::class,'store'])->name('roles.store');
+    Route::get('/edit/{role}',[RoleController::class,'edit'])->name('roles.edit');
+    Route::post('/update/{role}',[RoleController::class,'update'])->name('roles.update');
+    Route::get('/destroy/{role}',[RoleController::class,'destroy'])->name('roles.destroy');
 });
 
 
