@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('short_content');
             $table->text('content');
             $table->foreignId('user_id')->default(1);
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id');
             $table->integer('comments_count')->default(1);
             $table->integer('visit_count')->default(1);
             $table->enum('status',['draft', 'published']);
