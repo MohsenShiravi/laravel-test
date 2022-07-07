@@ -52,7 +52,7 @@
                                     <div class="form-group">
                                         <label>نام دسته بندی</label>
                                         <select name="category_id" class="form-control">
-                                            <option>انتخاب کنید:</option>
+                                            <option> انتخاب کنید:</option>
 
                                             @foreach ($categories as $category){
                                             <option @if($category->id==$post->category_id) selected @endif value="{{$category->id}}"  >{{$category->title}}</option>';
