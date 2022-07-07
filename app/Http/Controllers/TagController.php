@@ -10,6 +10,6 @@ class TagController extends Controller
 {
     public function show()
     {
-        return view('tags.show',['tags'=>Tag::all(),'posts'=>Post::all()]);
+        return view('tags.show',['tags' =>Tag::all(),'posts'=>Post::all()]);
     }
 }
