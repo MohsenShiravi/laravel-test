@@ -14,7 +14,7 @@ class TagSeeder extends Seeder
             {
 
                 Tag::query()
-                    ->insert([
+                    ->insert ([
                         [
                             'title' => 'تگ اول'
                         ],
