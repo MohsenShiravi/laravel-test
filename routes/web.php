@@ -52,5 +52,5 @@ Route::prefix('roles')->group(function (){
     Route::post('/update/{role}',[RoleController::class,'update'])->name('roles.update');
     Route::get('/destroy/{role}',[RoleController::class,'destroy'])->name('roles.destroy');
 });
-Route::get('tags/show',[TagController::class,'show'])->name('tags.show');
+Route::get('tags/show',[TagController::class, 'show'])->name('tags.show');
 
