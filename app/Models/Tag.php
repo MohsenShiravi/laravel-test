@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class Tag extends Model
 {
     use HasFactory;
     protected $guarded=[];
 
-    public function roles()
+    public function posts()
     {
-        return $this->belongsToMany(Role::class, 'permission_role');
+ return $this->belongsToMany(Post::class)->withPivot('created_at');;
     }
-
 }

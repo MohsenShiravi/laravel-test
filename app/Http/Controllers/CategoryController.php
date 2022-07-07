@@ -33,7 +33,7 @@ class CategoryController extends Controller
         return view('categories.edit',compact('category'));
     }
 
-    public function update(Request $request , Category $category)
+    public function update(CategoryRequest $request , Category $category)
     {
         $category->title=$request->title;
         $category->save();

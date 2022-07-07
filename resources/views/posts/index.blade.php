@@ -15,17 +15,15 @@
         </tr>
         </thead>
         @foreach($posts as $post)
-            @php
-            $categories=\App\Models\Category::query()->where('id',$post->category_id)->get();
-            @endphp
+
             <tr>
                 <td>{{ $loop->iteration}}</td>
                 <td>{{$post->title}}</td>
                 <td>{{$post->short_content}}</td>
                 <td>{{$post->content}}</td>
-                @foreach($categories as $category)
-                <td>{{$category->title}}</td>
-                @endforeach
+
+                <td>{{$post->category->title}}</td>
+              h
                 <td>{{$post->status}}</td>
                 <td><a href="{{route('posts.edit',['post'=> $post->id])}}" class="btn btn-sm btn-primary">ویرایش</a>
 

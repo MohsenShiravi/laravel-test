@@ -59,7 +59,17 @@
                                            @endforeach
                                         </select>
                                     </div>
+                                    <div class="form-row">
+                                        <label class="control-label" for="inputError"> تگ های مورد نظر را انتخاب کنید</label>
+                                        @foreach($tags as $tag)
+                                            <label for="" class="pr-4">
+                                                <input type="checkbox" name="tags[]"
+                                                       @if($post->hasTag($tag)) checked @endif
 
+                                                       id="" value="{{$tag->id}}">{{$tag->title}}
+                                            </label>
+                                        @endforeach
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="inputError"> وضعیت انتشار</label>
                                         <div class="form-check">

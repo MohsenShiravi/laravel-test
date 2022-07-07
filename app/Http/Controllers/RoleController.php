@@ -14,17 +14,16 @@ class RoleController extends Controller
 {
     public function create()
     {
-        return view('roles.create',[ 'permissions'=>Permission::all()]);
+        return view('roles.create',['permissions'=>Permission::all()]);
 
     }
 
     public function store(RoleRequest $request , Role $role)
     {
-        $role->create([
+        $roles=$role->create([
             'title'=>$request->get('title'),
         ]);
-        //$role->permissions()->attach($request->get('permissions'));
-        $role->permissions()->attach($request->get('permissions'));
+        $roles->permissions()->attach($request->get('permissions'));
         return redirect()->route('roles.index');
     }
 
@@ -36,7 +35,7 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
-        return view('roles.edit',compact('role'));
+        return view('roles.edit',['role'=>$role,'permissions'=>Permission::all()]);
     }
 
     public function update(Request $request , Role $role)
@@ -44,10 +43,13 @@ class RoleController extends Controller
         $role->update([
             'title'=>$request->get('title'),
         ]);
+        $role->permissions()->sync($request->get('permissions'));
+
         return redirect()->route('roles.index');
     }
     public function destroy(Role $role)
     {
+        $role->permissions()->detach();
         $role->delete();
         return redirect()->route('roles.index');
     }

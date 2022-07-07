@@ -24,9 +24,7 @@ class RoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|unique:roles|min:2|max:255',
-            'permissions'=>['array'],
-            'permissions.*'=>['exists:permissions,id']
+            'title'=>'required|unique:roles|min:2|max:255'
         ];
     }
 }
